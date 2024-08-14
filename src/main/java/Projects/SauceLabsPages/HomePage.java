@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
+import java.io.IOException;
+
 public class HomePage extends PageBase {
 
     By proof = By.xpath("//*[@text='PRODUCTS']");
@@ -52,7 +54,13 @@ public class HomePage extends PageBase {
 
     @Step("When i click on an item")
     public HomePage scrollDown() throws InterruptedException {
-        bot.scrollDownToElementByID(button);
+        //bot.scrollDownToElementByXpath(button);
+        return this;
+    }
+
+    @Step("When i click on an item")
+    public HomePage scrollDownSelenium() throws InterruptedException {
+        //bot.scrollDownToElementByXpath(button);
         return this;
     }
 
@@ -136,7 +144,7 @@ public class HomePage extends PageBase {
         driver.findElement(filterByHighPrice).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(highestItemPrice));
         driver.findElement(highestItemPrice).click();
-        bot.scrollDownToElementByID(price);
+        //bot.scrollDownToElementByXpath(price);
         wait.until(ExpectedConditions.presenceOfElementLocated(price));
         return driver.findElement(price).getText();
     }
@@ -145,5 +153,10 @@ public class HomePage extends PageBase {
         wait.until(ExpectedConditions.presenceOfElementLocated(menu));
         driver.findElement(menu).click();
         return new menuPage(driver,bot,wait);
+    }
+
+    public HomePage screenShotIt() throws IOException {
+        bot.fullScreenShot(menu);
+        return this;
     }
 }

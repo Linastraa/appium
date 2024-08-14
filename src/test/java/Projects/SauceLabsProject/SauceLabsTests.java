@@ -5,6 +5,8 @@ import Projects.testBase;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
+
 public class SauceLabsTests extends testBase {
 
     @Test
@@ -55,7 +57,7 @@ public class SauceLabsTests extends testBase {
         String actualText= loginPage.
                                     loginWithValidUsernameAndPassword().
                                     clickOnAnItem().
-                                    scrollDown().
+                                    scrollDownSelenium().
                                     clickOnButton().
                                     clickOnCart().
                                     getTheText();
@@ -148,5 +150,13 @@ public class SauceLabsTests extends testBase {
                 clickOnMenu().
                 clickOnGEO().
                 accept();
+    }
+
+    @Test
+    public void fullScreenShotTest() throws IOException {
+        LoginPage loginPage = new LoginPage(driver,bot,wait);
+        loginPage.
+                  loginWithValidUsernameAndPassword().
+                  screenShotIt();
     }
 }
