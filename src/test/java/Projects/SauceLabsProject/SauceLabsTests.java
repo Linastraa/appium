@@ -66,6 +66,17 @@ public class SauceLabsTests extends testBase {
     }
 
     @Test
+    public void scrollDown1Test() throws InterruptedException {
+
+        LoginPage loginPage = new LoginPage(driver,bot,wait);
+        loginPage.
+                loginWithValidUsernameAndPassword().
+                scrollDown();
+
+        //Assert.assertEquals(actualText,"YOUR CART");
+    }
+
+    @Test
     public void addToCartTest() throws InterruptedException {
 
         LoginPage loginPage = new LoginPage(driver,bot,wait);
@@ -158,5 +169,15 @@ public class SauceLabsTests extends testBase {
         loginPage.
                   loginWithValidUsernameAndPassword().
                   screenShotIt();
+    }
+
+    @Test
+    public void geo2Test() throws InterruptedException {
+        LoginPage loginPage = new LoginPage(driver,bot,wait);
+        loginPage.
+                loginWithValidUsernameAndPassword().
+                clickOnMenu().
+                clickOnGEO().
+                accept2();
     }
 }

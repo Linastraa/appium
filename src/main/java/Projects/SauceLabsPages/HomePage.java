@@ -16,7 +16,7 @@ public class HomePage extends PageBase {
     By proof = By.xpath("//*[@text='PRODUCTS']");
     By item = By.xpath("//*[@content-desc='test-Item']");
     AppiumBy addButton = (AppiumBy) AppiumBy.accessibilityId("test-ADD TO CART");
-    By button = By.xpath("//*[@content-desc='test-ADD TO CART']");
+    By button = By.xpath("//android.view.ViewGroup[@content-desc=\"test-ADD TO CART\"]");
     By cart = By.xpath("//*[@content-desc='test-Cart']");
     By myCartText = By.xpath("//*[@text='YOUR CART']");
     By checkoutButton = By.xpath("//*[@content-desc='test-CHECKOUT']");
@@ -54,13 +54,14 @@ public class HomePage extends PageBase {
 
     @Step("When i click on an item")
     public HomePage scrollDown() throws InterruptedException {
-        //bot.scrollDownToElementByXpath(button);
+//        bot.scrollDownToElementByXpath(button);
+        bot.scrollDownToElementByText("© 2024 Sauce Labs. All Rights Reserved.");
         return this;
     }
 
     @Step("When i click on an item")
     public HomePage scrollDownSelenium() throws InterruptedException {
-        //bot.scrollDownToElementByXpath(button);
+        bot.scrollDownToElementByXpath(button);
         return this;
     }
 
@@ -144,7 +145,7 @@ public class HomePage extends PageBase {
         driver.findElement(filterByHighPrice).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(highestItemPrice));
         driver.findElement(highestItemPrice).click();
-        //bot.scrollDownToElementByXpath(price);
+        bot.scrollDownToElementByXpath(price);
         wait.until(ExpectedConditions.presenceOfElementLocated(price));
         return driver.findElement(price).getText();
     }

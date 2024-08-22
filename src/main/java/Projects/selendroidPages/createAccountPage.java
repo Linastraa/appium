@@ -36,7 +36,7 @@ public class createAccountPage extends PageBase {
 
     public createAccountPage editPassword() throws InterruptedException {
         wait.until(ExpectedConditions.presenceOfElementLocated(passField));
-        //bot.scrollDownToElementByXpath(passField);
+        bot.scrollDownToElementByXpath(passField);
         driver.findElement(passField).sendKeys("Linastra@1420");
         return this;
     }

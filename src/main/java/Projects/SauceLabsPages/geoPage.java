@@ -2,6 +2,7 @@ package Projects.SauceLabsPages;
 
 import Projects.ActionsBot;
 import Projects.PageBase;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -19,6 +20,14 @@ public class geoPage extends PageBase {
         wait.until(ExpectedConditions.presenceOfElementLocated(accept));
         driver.findElement(accept).click();
         Thread.sleep(5000);
+        return this;
+    }
+
+    public geoPage accept2(){
+        Alert alert = driver.switchTo().alert();
+        String alertMessage= alert.getText();
+        System.out.println(alertMessage);
+        alert.accept();
         return this;
     }
 }

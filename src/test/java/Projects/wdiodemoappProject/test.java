@@ -41,9 +41,21 @@ public class test extends testBase{
     }
 
     @Test
-    public void dragAndDropTest(){
+    public void dragAndDropTest() throws InterruptedException {
         homePage homePage = new homePage(driver, bot, wait);
         homePage.clickOnDragAndDropPage().dragAndDrop();
+    }
+
+    @Test
+    public void listTest() throws InterruptedException {
+        homePage homePage = new homePage(driver, bot, wait);
+        homePage.clickOnSwipeButton().getTextList();
+    }
+
+    @Test
+    public void scrollTest() throws InterruptedException {
+        homePage homePage = new homePage(driver, bot, wait);
+        homePage.clickOnWebViewOption().scrollDown();
     }
 
 }
