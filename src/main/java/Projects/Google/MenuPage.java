@@ -1,23 +1,26 @@
-package Projects.SauceLabsPages;
+package Projects.Google;
 
 import Projects.ActionsBot;
 import Projects.PageBase;
+import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 
-public class menuPage extends PageBase {
+public class MenuPage extends PageBase {
 
     By GEO = By.xpath("//*[@text='GEO LOCATION']");
 
-    public menuPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
+    public MenuPage(WebDriver driver, ActionsBot bot, Wait<WebDriver> wait) {
         super(driver, bot, wait);
     }
 
-    public geoPage clickOnGEO(){
+    public GEO ClickOnGEO(){
         wait.until(ExpectedConditions.presenceOfElementLocated(GEO));
-        driver.findElement(GEO).click();
-        return new geoPage(driver,bot,wait);
+        bot.click(GEO);
+        return new GEO(driver, bot, wait);
     }
+
+
 }
